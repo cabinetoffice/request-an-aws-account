@@ -13,8 +13,8 @@ class NotifyService
 
     client = Notifications::Client.new(@notify_api_key)
     client.send_email(
-      email_address: 'gds-aws-account-management@digital.cabinet-office.gov.uk',
-      template_id: '95358639-a3d0-4f27-baf9-50bf530891a8',
+      email_address: 'co-aws-requests@cabinetoffice.gov.uk',
+      template_id: '25c1f81c-bcd4-46eb-bc9d-5874504c4464',
       personalisation: personalisation
     )
   end
@@ -28,7 +28,7 @@ class NotifyService
     client = Notifications::Client.new(@notify_api_key)
     client.send_email(
       email_address: email,
-      template_id: '4db8b8a6-1486-44e3-9bf4-572d64be7881',
+      template_id: '6e05fe05-5a6e-411e-85e0-b4e4d8dc494f',
       personalisation: {
         account_name: account_name,
         pull_request_url: pull_request_url
