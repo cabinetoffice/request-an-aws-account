@@ -15,8 +15,8 @@ class GithubService
 
     new_branch_name = 'new-aws-account-' + account_name
     github_repo = 'cabinetoffice/cope-aws-account-billing-test'
-    master = @client.commit(github_repo, 'master')
-    create_branch github_repo, new_branch_name, master.sha
+    main = @client.commit(github_repo, 'main')
+    create_branch github_repo, new_branch_name, main.sha
 
     for accounts_path in ['terraform/accounts.tf.json', 'terraform/accounts.tf'] do
       begin
@@ -53,7 +53,7 @@ Co-authored-by: #{name} <#{email}>",
     )
     @client.create_pull_request(
       github_repo,
-      'master',
+      'main',
       new_branch_name,
       # TODO add org and const centre in this string
       "Add new AWS account for: #{account_name}",
