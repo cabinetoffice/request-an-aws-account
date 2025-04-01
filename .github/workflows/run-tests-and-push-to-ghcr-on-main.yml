@@ -11,8 +11,8 @@ permissions:
 
 jobs:
   run-tests: 
-    uses: alphagov/re-request-an-aws-account/.github/workflows/run-tests.yaml@main
+    uses: cabinetoffice/request-an-aws-account/.github/workflows/run-tests.yaml@main
   publish-docker-image: 
     needs: run-tests
-    uses: alphagov/re-request-an-aws-account/.github/workflows/push-to-ghcr.yml@main
+    uses: cabinetoffice/request-an-aws-account/.github/workflows/push-to-ghcr.yml@main
     secrets: inherit

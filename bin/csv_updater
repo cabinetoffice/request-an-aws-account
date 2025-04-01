@@ -4,7 +4,7 @@ require 'aws-sdk-s3'
 require 'csv'
 require 'slop'
 
-# key value pair mapping from headers in the ingested csv file to the headers required by the RAAT.
+# key value pair mapping from headers in the ingested csv file to the headers required by the application.
 # if required headers are not found adjust the keys to match the updated headers in the new file.
 mapping = {
   "Cost Centre Description" => "Cost Centre Description", #eg "SOME TEAM"
@@ -16,7 +16,7 @@ mapping = {
 puts "Running csv updater"
 
 options = Slop.parse do |opts|
-  opts.string '-b', '--bucket', 'Specify the bucket eg. \"gds-ee-raat-test-csv\"' 
+  opts.string '-b', '--bucket', 'Specify the bucket eg. \"cope-request-aws-account-staging-csv\"' 
   opts.string '-f', '--file-path', 'Specify the file path eg. \"./my-csv-file.csv\"'
 end
 

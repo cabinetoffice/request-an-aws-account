@@ -68,7 +68,7 @@
           </div>
         </div>
       </fieldset>
-      <p govuk-body>If you need to be invoiced directly and are not in the options above please contact: <a class=govuk-link href="mailto:gds-engineering-enablement-support@digital.cabinet-office.gov.uk">gds-engineering-enablement-support@digital.cabinet-office.gov.uk</a></p>     
+      <p govuk-body>If you need to be invoiced directly and are not in the options above please contact: <a class="govuk-link" href="mailto:<%= Rails.application.config.support_email %>"><%= Rails.application.config.support_email %></a></p>      
       <%= f.submit 'Next', class: 'govuk-button', data: { module: "govuk-button" } %>
     <% end %>
   </div>

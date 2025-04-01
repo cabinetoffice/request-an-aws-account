@@ -33,7 +33,7 @@ module ReRequestAnAwsAccount
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
 
-    config.support_email = "gds-engineering-enablement-support@digital.cabinet-office.gov.uk"
+    config.support_email = "co-platform-engineering@cabinetoffice.gov.uk"
 
     # Configuration for the application, engines, and railties goes here.
     #

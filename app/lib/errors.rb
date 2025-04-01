@@ -2,12 +2,6 @@ module Errors
   class EmailTooLongError < StandardError
   end
 
-  class UserAlreadyExistsError < StandardError
-  end
-
-  class UserDoesntExistError < StandardError
-  end
-
   class AccountAlreadyExistsError < StandardError
   end
 

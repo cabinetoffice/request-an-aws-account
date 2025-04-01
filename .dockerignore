@@ -12,7 +12,6 @@ vendor/*
 
 
 #ignore these files/directories
-raat-redirect
 .DS_Store
 .git
 .github

@@ -1,7 +1,7 @@
-Engineering Enablement: Request an AWS Account
+Cabinet Office Platform Engineering: Request an AWS Account
 ===============================================
 
-User interface to manage AWS Accounts (e.g. for new services or environments) and users within the base AWS account.
+User interface to request new AWS account within the Cabinet Office AWS organisation.
 
 Running locally
 ---------------
@@ -46,7 +46,7 @@ If running in production a master key is required to decrypt `credentials.yml.en
 ENV vars
 --------
 
-  - `RAILS_ALLOWED_DOMAINS`: the domain of the app runtime env (eg loalhost:3000 or sub.domain.tld)
+  - `RAILS_ALLOWED_DOMAINS`: the domain of the app runtime env (eg localhost:3000 or sub.domain.tld)
   - `RAILS_SERVE_STATIC_FILES` true|false(default)
   - `RAILS_LOG_TO_STDOUT` true : will log out errors etc since production defaults to logfile
   - `RESTRICT_LOGIN_EMAIL_ADDRESSES_TO`: `example.one@digital.cabinet-office.gov.uk example.two@digital.cabinet-office.gov.uk` - should be a space separated list of email addresses if set it will only allow those email address to log in
@@ -57,7 +57,7 @@ ENV secrets
 
   - `GOOGLE_CLIENT_ID`: an OAuth2 client ID
   - `GOOGLE_CLIENT_SECRET`: an OAuth2 client secret
-  - `GITHUB_PERSONAL_ACCESS_TOKEN`: the PAT required to act on requied alphagov repos
+  - `GITHUB_PERSONAL_ACCESS_TOKEN`: the PAT required to act on requied cabinetoffice repos
   - `NOTIFY_API_KEY`: a key to use the notify api to send emails
   - `RAILS_MASTER_KEY`: the key that has been used to encode `config/credentials.yml.enc`
 
@@ -75,12 +75,12 @@ Run the CSV Updater script from the root of the project with:
 gds aws <account-name> -- bundle exec ruby bin/csv_updater -b "<bucket-name>" -f "<path-to-file>"
 ```
 For test environment:
-- Account name: ```ee-request-aws-account-test-admin```
-- Bucket name: ```gds-ee-raat-test-csv```
+- Account name: ```co-aws-requests-app-staging```
+- Bucket name: ```cope-request-aws-account-staging-csv```
 
 Production environment:
-- Account name: ```ee-request-aws-account-prod```
-- Bucket name: ```gds-ee-raat-prod-csv```
+- Account name: ```co-aws-requests-app-prod```
+- Bucket name: ```cope-request-aws-account-prod-csv```
 
 Path to file is the absolute path of the file eg: ```/Users/myusername/Downloads/cost_centres.csv```.
 
