@@ -264,7 +264,7 @@ class CheckYourAnswersControllerTest < ActionDispatch::IntegrationTest
   end
 
   def stub_create_account_github_api(accounts_terraform, resulting_pull_request_url)
-    stub_request(:get, "#{ACCOUNT_MANAGEMENT_GITHUB_API}/commits/main").
+    stub_request(:get, "#{ACCOUNT_MANAGEMENT_GITHUB_API}/commits/master").
       to_return(status: 200, body: '{"sha":"somesha"}', headers: {'Content-Type' => 'application/json'})
 
     stub_request(:post, "#{ACCOUNT_MANAGEMENT_GITHUB_API}/git/refs").
