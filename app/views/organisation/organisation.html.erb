@@ -30,10 +30,6 @@
           </span>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">
-                <%= f.radio_button :organisation, 'GDS or CDDO or I.AI', checked: @form.organisation == 'GDS or CDDO or I.AI', id: 'cost_centre_code', class: 'govuk-radios__input'  %>
-                <%= f.label :organisation, 'I have a GDS, CDDO, or I.AI cost centre (your request process has changed, you will be redirected to alphagov)', for: 'cost_centre_code', class: 'govuk-label govuk-radios__label' %>
-            </div>
-            <div class="govuk-radios__item">
                 <%= f.radio_button :organisation, 'Cabinet Office', checked: @form.organisation == 'Cabinet Office', id: 'cost_centre_code', class: 'govuk-radios__input', data:{"aria-controls": "conditional-contact"} %>
                 <%= f.label :organisation, 'I have a Cabinet Office cost centre', for: 'cost_centre_code', class: 'govuk-label govuk-radios__label' %>
             </div>
@@ -70,6 +66,8 @@
       </fieldset>
       <p govuk-body>If you need to be invoiced directly and are not in the options above please contact: <a class="govuk-link" href="mailto:<%= Rails.application.config.support_email %>"><%= Rails.application.config.support_email %></a></p>      
       <%= f.submit 'Next', class: 'govuk-button', data: { module: "govuk-button" } %>
+      <h3 class="govuk-heading-m">GDS or i.AI cost centres </h3>
+      <p govuk-body>Your request process has changed, please refer to the new process outlined in <a href="https://gds-way.digital.cabinet-office.gov.uk/manuals/working-with-aws-accounts.html#create-aws-accounts" target="_blank" rel="noopener noreferrer">The GDS Way - Create AWS Accounts</a></p>
     <% end %>
   </div>
 </div>
