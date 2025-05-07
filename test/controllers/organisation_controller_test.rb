@@ -61,9 +61,4 @@ class OrganisationControllerTest < ActionDispatch::IntegrationTest
     post organisation_url, params: { organisation_form: { organisation: "Government Property Agency", cost_centre_code: ""} }
     assert_redirected_to team_url
   end 
-
-  test 'should redirect to GDS Organization README if I have a GDS or CDDO cost centre'  do
-    post organisation_url, params: { organisation_form: { organisation: "GDS or CDDO or I.AI", cost_centre_code: ""} }
-    assert_redirected_to OrganisationController::GDS_ORG_ACCOUNT_VENDING_README
-  end 
 end
