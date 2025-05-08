@@ -24,7 +24,9 @@
       </a>
       <% end %>
     <% else %>
-    <p>Depending on your email domain, you can use this service to request a new AWS account (e.g. for a new service or environment)</p>
+    <p>Depending on your email domain, you can use this service to request a new AWS account (e.g. for a new service or environment).</p>
+
+    <p>You must ensure that any administrators which are delegated to a new AWS account have a GDS IAM user identity. Otherwise, delegated admins will not be able to access the new AWS account via role switching. See the link below to request this if required. </p>
 
     <p>First you need to sign in with your Google account so we know who you are.</p>
       <%= form_tag('/auth/google_oauth2', method: 'post') do %>
