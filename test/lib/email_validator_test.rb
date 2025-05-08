@@ -21,26 +21,6 @@ class EmailValidatorTest < ActiveSupport::TestCase
     assert EmailValidator.email_is_allowed_basic?(email)
   end
 
-  test 'Softwire email addresses are allowed to sign in' do
-    email = 'fname.lname@softwire.com'
-    assert EmailValidator.email_is_allowed_basic?(email)
-  end
-
-  test 'Fidusinfosec email addresses are allowed to sign in' do
-    email = 'fname.lname@fidusinfosec.com'
-    assert EmailValidator.email_is_allowed_basic?(email)
-  end
-
-  test 'Cyberis email addresses are allowed to sign in' do
-    email = 'fname.lname@cyberis.com'
-    assert EmailValidator.email_is_allowed_basic?(email)
-  end
-
-  test 'Pentestpartners email addresses are allowed to sign in' do
-    email = 'fname.lname@pentestpartners.com'
-    assert EmailValidator.email_is_allowed_basic?(email)
-  end
-
   test 'IBCA email addresses are allowed to sign in' do
     email = 'fname.lname@ibca.org.uk'
     assert EmailValidator.email_is_allowed_basic?(email)
