@@ -31,47 +31,32 @@ class EmailValidatorTest < ActiveSupport::TestCase
     assert ! EmailValidator.email_is_allowed_basic?(email)
   end
 
-  test 'GDS email addresses are allowed to manage users' do
+  test 'GDS email addresses are allowed to request new accounts' do
     email = 'fname.lname@digital.cabinet-office.gov.uk'
     assert EmailValidator.email_is_allowed_advanced?(email)
   end
 
-  test 'Cabinet Office email addresses are allowed to manage users' do
+  test 'Cabinet Office email addresses are allowed to request new accounts' do
     email = 'fname.lname@cabinetoffice.gov.uk'
     assert EmailValidator.email_is_allowed_advanced?(email)
   end
 
-  test 'Government Property Agency email addresses are allowed to manage users' do
+  test 'Government Property Agency email addresses are allowed to request new accounts' do
     email = 'fname.lname@gpa.gov.uk'
     assert EmailValidator.email_is_allowed_advanced?(email)
   end
 
-  test 'Infrastructure and Projects Authority email addresses are allowed to manage users' do
+  test 'Infrastructure and Projects Authority email addresses are allowed to request new accounts' do
     email = 'fname.lname@ipa.gov.uk'
     assert EmailValidator.email_is_allowed_advanced?(email)
   end
 
-  test 'IBCA email addresses are allowed to manage users' do
+  test 'IBCA email addresses are allowed to request new accounts' do
     email = 'fname.lname@ibca.org.uk'
     assert EmailValidator.email_is_allowed_advanced?(email)
   end
 
-  test 'Softwire email addresses are not allowed to manage users' do
-    email = 'fname.lname@softwire.com'
-    assert ! EmailValidator.email_is_allowed_advanced?(email)
-  end
-
-  test 'Fidusinfosec email addresses are not allowed to manage users' do
-    email = 'fname.lname@fidusinfosec.com'
-    assert ! EmailValidator.email_is_allowed_advanced?(email)
-  end
-
-  test 'Cyberis email addresses are not allowed to manage users' do
-    email = 'fname.lname@cyberis.com'
-    assert ! EmailValidator.email_is_allowed_advanced?(email)
-  end
-
-  test 'Other email addresses are not allowed to manage users' do
+  test 'Other email addresses are not allowed to request new accounts' do
     email = 'fname.lname@example.com'
     assert ! EmailValidator.email_is_allowed_advanced?(email)
   end
@@ -86,33 +71,13 @@ class EmailValidatorTest < ActiveSupport::TestCase
     assert_match EmailValidator.allowed_emails_regexp, email
   end
 
-  test 'Government Property Agency emails can be used as usernames for new users' do
+  test 'Government Property Agency emails are matched by the allowed emails regexp' do
     email = 'fname.lname@gpa.gov.uk'
     assert_match EmailValidator.allowed_emails_regexp, email
   end
 
-  test 'Infrastructure and Projects Authority emails can be used as usernames for new users' do
+  test 'Infrastructure and Projects Authority emails are matched by the allowed emails regexp' do
     email = 'fname.lname@ipa.gov.uk'
-    assert_match EmailValidator.allowed_emails_regexp, email
-  end
-
-  test 'Softwire emails are matched by the allowed emails regexp' do
-    email = 'fname.lname@softwire.com'
-    assert_match EmailValidator.allowed_emails_regexp, email
-  end
-
-  test 'Fidusinfosec emails are matched by the allowed emails regexp' do
-    email = 'fname.lname@fidusinfosec.com'
-    assert_match EmailValidator.allowed_emails_regexp, email
-  end
-
-  test 'Cyberis emails are matched by the allowed emails regexp' do
-    email = 'fname.lname@cyberis.com'
-    assert_match EmailValidator.allowed_emails_regexp, email
-  end
-
-  test 'Pentestpartners emails are matched by the allowed emails regexp' do
-    email = 'fname.lname@pentestpartners.com'
     assert_match EmailValidator.allowed_emails_regexp, email
   end
 
