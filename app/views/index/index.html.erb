@@ -24,7 +24,9 @@
       </a>
       <% end %>
     <% else %>
-    <p>Depending on your email domain, you can use this service to request a new AWS account (e.g. for a new service or environment)</p>
+    <p>Depending on your email domain, you can use this service to request a new AWS account (e.g. for a new service or environment).</p>
+
+    <p>You must ensure that any administrators which are delegated to a new AWS account have a GDS IAM user identity. Otherwise, delegated admins will not be able to access the new AWS account via role switching. See the link below to request this if required. </p>
 
     <p>First you need to sign in with your Google account so we know who you are.</p>
       <%= form_tag('/auth/google_oauth2', method: 'post') do %>
@@ -35,8 +37,8 @@
     <h1 class="govuk-heading-l">Manage AWS users </h1>
     <p>To carry out the tasks below, please use the <a href="https://request-an-aws-account.gds-reliability.engineering" target="_blank" rel="noopener noreferrer">request AWS user service</a></p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>Reset your AWS user password (for all users)</li>
       <li>Request a new AWS user (e.g. for new joiners - Cabinet Office staff only)</li>
+      <li>Reset your AWS user password (for all users)</li>
       <li>Remove an AWS user (e.g. for leavers - Cabinet Office staff only)</li>
     </ul>
     <% end %>
