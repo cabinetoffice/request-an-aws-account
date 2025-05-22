@@ -1,7 +1,13 @@
-Cabinet Office Platform Engineering: Request an AWS Account
+Cabinet Office - Request an AWS Account application
 ===============================================
 
 User interface to request new AWS account within the Cabinet Office AWS organisation.
+
+This repository contains the application code for the Cabinet Office [request-an-aws-account](https://github.com/cabinetoffice/request-an-aws-account) application. The application code has been copied from a repository used for the GDS [re-request-an-aws-account](https://github.com/alphagov/re-request-an-aws-account) application, and has been retrofitted for Cabinet Office purposes.
+
+
+The related infrastructure for this application is in a separate repository [cabinetoffice/co-aws-requests-app-infrastructure](https://github.com/cabinetoffice/co-aws-requests-app-infrastructure)
+
 
 Running locally
 ---------------
@@ -49,16 +55,17 @@ ENV vars
   - `RAILS_ALLOWED_DOMAINS`: the domain of the app runtime env (eg localhost:3000 or sub.domain.tld)
   - `RAILS_SERVE_STATIC_FILES` true|false(default)
   - `RAILS_LOG_TO_STDOUT` true : will log out errors etc since production defaults to logfile
-  - `RESTRICT_LOGIN_EMAIL_ADDRESSES_TO`: `example.one@digital.cabinet-office.gov.uk example.two@digital.cabinet-office.gov.uk` - should be a space separated list of email addresses if set it will only allow those email address to log in
+  - `RESTRICT_LOGIN_EMAIL_ADDRESSES_TO`: `example.one@cabinetoffice.gov.uk example.two@cabinetoffice.gov.uk` - should be a space separated list of email addresses if set it will only allow those email address to log in
 
-
-ENV secrets
+Secrets required
 -----------
 
-  - `GOOGLE_CLIENT_ID`: an OAuth2 client ID
-  - `GOOGLE_CLIENT_SECRET`: an OAuth2 client secret
-  - `GITHUB_PERSONAL_ACCESS_TOKEN`: the PAT required to act on requied cabinetoffice repos
-  - `NOTIFY_API_KEY`: a key to use the notify api to send emails
+For more details regarding usage and setting up secrets, see [co-aws-requests-app-infrastructure README.md](https://github.com/cabinetoffice/co-aws-requests-app-infrastructure/blob/main/README.md).
+
+  - `GOOGLE_CLIENT_ID`: an OAuth2 Client ID
+  - `GOOGLE_CLIENT_SECRET`: an OAuth2 Client secret
+  - `GITHUB_PERSONAL_ACCESS_TOKEN`: the PAT required to act on requied [alphagov/aws-billing-account](https://github.com/alphagov/aws-billing-account) repository
+  - `NOTIFY_API_KEY`: a key to use the Notify API to send emails
   - `RAILS_MASTER_KEY`: the key that has been used to encode `config/credentials.yml.enc`
 
 Updating the Cost Centre Information
@@ -72,15 +79,15 @@ Download the Cost Center Hierarchy CSV file available on [this Cabinet Office in
 
 Run the CSV Updater script from the root of the project with:
 ```sh
-gds aws <account-name> -- bundle exec ruby bin/csv_updater -b "<bucket-name>" -f "<path-to-file>"
+cod aws <account-name> -- bundle exec ruby bin/csv_updater -b "<bucket-name>" -f "<path-to-file>"
 ```
-For test environment:
-- Account name: ```co-aws-requests-app-staging```
-- Bucket name: ```cope-request-aws-account-staging-csv```
+For Staging environment:
+- Account name: ```co-aws-requests-app-staging-admin```
+- Bucket name: ```cope-coar-staging-csv```
 
 Production environment:
-- Account name: ```co-aws-requests-app-prod```
-- Bucket name: ```cope-request-aws-account-prod-csv```
+- Account name: ```co-platform-engineering-prod-admin```
+- Bucket name: ```cope-coar-prod-csv```
 
 Path to file is the absolute path of the file eg: ```/Users/myusername/Downloads/cost_centres.csv```.
 
@@ -89,5 +96,5 @@ The script checks that the headers in the CSV have the expected values. If the u
 **Important note:** The csv file should not be made public, so if you save it inside the project, ensure you delete it after running the script and DO NOT push it to GitHub. 
 
 **To apply the changes, you must restart the app.** 
-Login to the AWS account by running: ```gds aws <account-name> -l```.
+Login to the AWS account by running: ```cod aws <account-name> -l```.
 In the AWS console, open App Runner and click the orange deploy button to refresh the instance without downtime.
