@@ -86,7 +86,7 @@ For Staging environment:
 - Bucket name: ```cope-coar-staging-csv```
 
 Production environment:
-- Account name: ```co-platform-engineering-prod-admin```
+- Account name: ```co-aws-requests-app-prod-admin```
 - Bucket name: ```cope-coar-prod-csv```
 
 Path to file is the absolute path of the file eg: ```/Users/myusername/Downloads/cost_centres.csv```.
