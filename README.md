@@ -6,7 +6,7 @@ User interface to request new AWS account within the Cabinet Office AWS organisa
 This repository contains the application code for the Cabinet Office [request-an-aws-account](https://github.com/cabinetoffice/request-an-aws-account) application. The application code has been copied from a repository used for the GDS [re-request-an-aws-account](https://github.com/alphagov/re-request-an-aws-account) application, and has been retrofitted for Cabinet Office purposes.
 
 
-The related infrastructure for this application is in a separate repository [cabinetoffice/co-aws-requests-app-infrastructure](https://github.com/cabinetoffice/co-aws-requests-app-infrastructure)
+The related infrastructure for this application is in a separate repository [cabinetoffice/request-an-aws-account-infrastructure](https://github.com/cabinetoffice/request-an-aws-account-infrastructure)
 
 
 Running locally
@@ -60,7 +60,7 @@ ENV vars
 Secrets required
 -----------
 
-For more details regarding usage and setting up secrets, see [co-aws-requests-app-infrastructure README.md](https://github.com/cabinetoffice/co-aws-requests-app-infrastructure/blob/main/README.md).
+For more details regarding usage and setting up secrets, see [request-an-aws-account-infrastructure README.md](https://github.com/cabinetoffice/request-an-aws-account-infrastructure/blob/main/README.md).
 
   - `GOOGLE_CLIENT_ID`: an OAuth2 Client ID
   - `GOOGLE_CLIENT_SECRET`: an OAuth2 Client secret
