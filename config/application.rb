@@ -34,6 +34,8 @@ module ReRequestAnAwsAccount
     config.autoload_lib(ignore: %w(assets tasks))
 
     config.support_email = "co-platform-engineering@cabinetoffice.gov.uk"
+    config.co_platform_engineering_google_group = "co-platform-engineering@cabinetoffice.gov.uk"
+    config.co_aws_requests_google_group = "co-aws-requests@cabinetoffice.gov.uk"
 
     # Configuration for the application, engines, and railties goes here.
     #
