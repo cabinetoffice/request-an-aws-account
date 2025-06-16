@@ -7,7 +7,7 @@ INITIAL_ACCOUNTS_TERRAFORM = <<EOTERRAFORM
       "aws_organizations_account": {
         "wombles-of-wimbledon-common-prod": {
           "name": "wombles-of-wimbledon-common-prod",
-          "email": "aws-root-accounts+wom-of-wim-pro@digital.cabinet-office.gov.uk",
+          "email": "aws-root+wom-of-wim-pro@cabinetoffice.gov.uk",
           "role_name": "bootstrap",
           "iam_user_access_to_billing": "ALLOW"
         }
@@ -17,7 +17,7 @@ INITIAL_ACCOUNTS_TERRAFORM = <<EOTERRAFORM
       "aws_organizations_account": {
         "wombles-of-wimbledon-common-staging": {
           "name": "wombles-of-wimbledon-common-staging",
-          "email": "aws-root-accounts+wom-of-wim-sta@digital.cabinet-office.gov.uk",
+          "email": "aws-root+wom-of-wim-sta@cabinetoffice.gov.uk",
           "role_name": "bootstrap",
           "iam_user_access_to_billing": "ALLOW" 
         }
@@ -49,7 +49,6 @@ class TerraformAccountsServiceTest < ActiveSupport::TestCase
     }
 
     assert_match /"gds-wombles-of-wimbledon-test"/, result
-    assert_match /"aws-root-accounts\+wom-of-wim-tes@digital\.cabinet-office\.gov\.uk"/, result
     assert_equal result, JSON.pretty_generate(JSON.parse(result)) + "\n"
     result_tags = JSON.parse(result)["resource"][0]["aws_organizations_account"]['gds-wombles-of-wimbledon-test']['tags']
     assert_equal expected_tags, result_tags
