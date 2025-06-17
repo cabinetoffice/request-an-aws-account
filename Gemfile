@@ -23,6 +23,7 @@ gem 'jwt', '~> 2.10.1'
 
 group :test do
   gem 'rack_session_access', '~> 0.2.0'
+  gem "mocha"
 end
 
 gem "listen", "~> 3.9", :group => :development

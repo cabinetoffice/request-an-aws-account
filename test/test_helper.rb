@@ -1,6 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'mocha/minitest'
 $LOAD_PATH << File.dirname(__FILE__) + "/../lib"
 
 class ActiveSupport::TestCase
@@ -8,11 +9,19 @@ class ActiveSupport::TestCase
   def set_stub_env_vars
     ENV['GITHUB_PERSONAL_ACCESS_TOKEN'] = 'SOME_GITHUB_ACCESS_TOKEN'
     ENV['NOTIFY_API_KEY'] = 'some_notify_access_token0-00000000-0000-0000-0000-000000000000-00000000-0000-0000-0000-000000000000'
+    ENV['GITHUB_REPO'] = 'org/fake_repo'
+    ENV['AWS_ROOT_ACCOUNTS_EMAIL_FORMAT'] = 'prefix+%s@domain.com'
+    ENV['ORGANISATION_UNIT'] = 'Sandbox (ou-xxx5-x8xx8xx8)'
+    ENV['SSO_USER_EMAIL'] = 'email@domain.com'
   end
 
   def reset_env_vars
     ENV.delete('GITHUB_PERSONAL_ACCESS_TOKEN')
     ENV.delete('NOTIFY_API_KEY')
+    ENV.delete('GITHUB_REPO')
+    ENV.delete('AWS_ROOT_ACCOUNTS_EMAIL_FORMAT')
+    ENV.delete('ORGANISATION_UNIT')
+    ENV.delete('SSO_USER_EMAIL')
   end
 
   def sign_in(email)
