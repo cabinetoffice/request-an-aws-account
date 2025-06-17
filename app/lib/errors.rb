@@ -2,8 +2,9 @@ module Errors
   class EmailTooLongError < StandardError
   end
 
-  class AccountAlreadyExistsError < StandardError
+  class AccountTerraformFileAlreadyExistsError < StandardError
   end
+
 
   def self.log_error(description, error = nil)
     Rails.logger.error({
