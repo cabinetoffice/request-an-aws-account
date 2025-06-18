@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'webmock'
 
-ACCOUNT_MANAGEMENT_GITHUB_API = "https://api.github.com/repos/alphagov/aws-billing-account"
+ACCOUNT_MANAGEMENT_GITHUB_API = "https://api.github.com/repos/cabinetoffice/aws-billing-account"
 
 class CheckYourAnswersControllerTest < ActionDispatch::IntegrationTest
   include WebMock::API
