@@ -1,5 +1,5 @@
 class TerraformAccountsService
-  AWS_ROOT_ACCOUNTS_EMAIL_FORMAT = 'aws-root-accounts+%s@digital.cabinet-office.gov.uk'
+  AWS_ROOT_ACCOUNTS_EMAIL_FORMAT = 'aws-root+%s@cabinetoffice.gov.uk'
 
   def initialize users_terraform
     @users_terraform_orig = JSON.parse users_terraform
@@ -23,7 +23,7 @@ class TerraformAccountsService
     accounts.push('aws_organizations_account' => {
       account_name => {
         'name': account_name,
-        'email': AWS_ROOT_ACCOUNTS_EMAIL_FORMAT % truncate_account_name_for_email(account_name),
+        'email': AWS_ROOT_ACCOUNTS_EMAIL_FORMAT % account_name,
         'role_name': 'bootstrap',
         'iam_user_access_to_billing': 'ALLOW',
         'tags': tags
@@ -35,15 +35,4 @@ class TerraformAccountsService
     JSON.pretty_generate(@users_terraform) + "\n"
   end
 
-private
-
-  def truncate_account_name_for_email account_name
-    max_length = 64 - (AWS_ROOT_ACCOUNTS_EMAIL_FORMAT % [ '' ]).length
-    groups = account_name.split('-').delete_if { |g| g == 'gds' }
-    target_group_size = (max_length / groups.length) - 1
-    if target_group_size < 2
-      raise "account name has too many groups in it - can't make it short enough to fit AWS' rules"
-    end
-    groups.map { |g| g[0...target_group_size]}.join('-')
-  end
 end
