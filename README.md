@@ -64,7 +64,7 @@ For more details regarding usage and setting up secrets, see [request-an-aws-acc
 
   - `GOOGLE_CLIENT_ID`: an OAuth2 Client ID
   - `GOOGLE_CLIENT_SECRET`: an OAuth2 Client secret
-  - `GITHUB_PERSONAL_ACCESS_TOKEN`: the PAT required to act on requied [alphagov/aws-billing-account](https://github.com/alphagov/aws-billing-account) repository
+  - `GITHUB_PERSONAL_ACCESS_TOKEN`: the PAT required to act on requied [cabinetoffice/aws-billing-account](https://github.com/cabinetoffice/aws-billing-account) repository
   - `NOTIFY_API_KEY`: a key to use the Notify API to send emails
   - `RAILS_MASTER_KEY`: the key that has been used to encode `config/credentials.yml.enc`
 

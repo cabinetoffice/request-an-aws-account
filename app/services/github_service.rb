@@ -14,7 +14,7 @@ class GithubService
     end
 
     new_branch_name = 'new-aws-account-' + account_name
-    github_repo = 'alphagov/aws-billing-account'
+    github_repo = 'cabinetoffice/aws-billing-account'
     master = @client.commit(github_repo, 'master')
     create_branch github_repo, new_branch_name, master.sha
 
