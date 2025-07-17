@@ -1858,6 +1858,8 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
+    puma (6.6.0)
+      nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.1.16)
     rack-protection (4.1.1)
@@ -1953,7 +1955,6 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    webrick (1.9.1)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -1989,6 +1990,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection (~> 1.0.1)
   ostruct
   pry
+  puma
   rack_session_access (~> 0.2.0)
   rails (~> 7.2.1)
   rexml (~> 3.4.1)
@@ -1996,7 +1998,6 @@ DEPENDENCIES
   slop
   tzinfo-data
   webmock (~> 3.25.1)
-  webrick (~> 1.9.1)
 
 RUBY VERSION
    ruby 3.3.5p100
