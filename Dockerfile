@@ -16,7 +16,9 @@ RUN apk update && apk add --no-cache \
     libxslt-dev \
     nodejs \
     yarn \
-    gcompat
+    gcompat \
+    yaml-dev \
+    libstdc++
 
 WORKDIR /opt/app
 COPY Gemfile Gemfile.lock ./
@@ -27,12 +29,17 @@ RUN bundle config set --local without 'development test' \
 FROM ruby:3.4.5-alpine
 
 WORKDIR /opt/app
-COPY --from=rubybuilder /usr/local/bundle /usr/local/bundle
-COPY --from=nodebuilder /usr/local/bin /usr/local/nodebin
-COPY --from=nodebuilder /opt/app/node_modules /opt/app/node_modules
-RUN apk add --no-cache gcompat 
-RUN export PATH=$PATH:/usr/local/nodebin \
+RUN apk add --no-cache \
+    gcompat \
+    tzdata \
+    nodejs \
+    yarn \
+    libstdc++ \
     && adduser -D -s /bin/sh app
+
+COPY --from=rubybuilder /usr/local/bundle /usr/local/bundle
+COPY --from=nodebuilder /opt/app/node_modules /opt/app/node_modules
+
 USER app
 COPY --chown=app . ./
 RUN RAILS_ENV=production bundle exec rake assets:precompile
