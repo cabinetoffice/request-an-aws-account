@@ -13,12 +13,12 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0.1'
 gem 'rails', '~> 7.2.1'
 gem 'sassc-rails'
 gem 'webmock', '~> 3.25.1'
-gem 'webrick', '~> 1.9.1'
 gem 'aws-sdk', '~> 3'
 gem 'rexml', '~> 3.4.1'
 gem 'tzinfo-data'
 gem 'csv'
 gem 'ostruct'
+gem 'puma'
 gem 'jwt', '~> 2.10.2'
 
 group :test do
