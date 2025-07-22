@@ -1838,7 +1838,7 @@ GEM
     omniauth-rails_csrf_protection (1.0.2)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
-    ostruct (0.6.2)
+    ostruct (0.6.3)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
